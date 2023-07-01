@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		#terrorist{
+			width: 80px;
+			position: relative;
+		}
+        #blood{
+            width: 90px;
+            height: 90px;
+            position: relative;
+        }
+		body{
+			background-image: url("backg.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+        #face{
+            text-align: center;
+        }
+        .crosshair {cursor: crosshair;}
+	</style>
+</head>
+<body>
+	<h1 id="face">0</h1>
+	<img src="terrorist1.png" id="terrorist" onclick="scoreBoard()" class="crosshair">
+    <img src="blood.png" id="blood">
+	<script type="text/javascript">
+        x=0;
+        y=0;
+		function changePosition(){
+			n = document.getElementById("terrorist");
+            
+			y = Math.ceil(Math.random()*100);
+			x = Math.ceil(Math.random()*1600);
+			n.style.top=y+"px";
+			n.style.left=x+"px";
+		}
+        function bloodeffect(){
+            blood = document.getElementById("blood");
+            blood.style.top=(y-15)+"px";
+            blood.style.left=(x-80)+"px";
+        }
+		setInterval(changePosition,2000);
+		changePosition();
+        score = 0;
+        h = document.getElementById("face");
+        
+		function scoreBoard() {
+			score ++;
+            h.innerHTML = score
+            playSound();
+            bloodeffect();
+		}
+        function playSound() {
+            var audio = new Audio("Gunshot.mp3");
+            audio.play();
+        }
+
+        
+	</script>
+</body>
+</html>
