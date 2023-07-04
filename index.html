@@ -12,7 +12,7 @@
         #blood{
             width: 90px;
             height: 90px;
-            position: relative;
+            position: absolute;
         }
 		body{
 			background-image: url("backg.jpg");
@@ -35,9 +35,9 @@
 		function changePosition(){
 			n = document.getElementById("terrorist");
             
-			y = Math.ceil(Math.random()*1000);
-			x = Math.ceil(Math.random()*1800);
-			n.style.top=y+"px";
+			y = Math.ceil(Math.random()*500);
+			x = Math.ceil(Math.random()*1550);
+			n.style.top=(y)+"px";
 			n.style.left=x+"px";
 		}
         function bloodeffect(){
